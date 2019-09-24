@@ -21,23 +21,15 @@ export PATH="/usr/local/Cellar/openssl/1.0.2r/bin:$PATH"
 export PATH="/usr/local/opt/bison/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
-eval "$(anyenv init -)"
-
 export EDITOR=vim
 export GIT_EDITOR=vim
+
+eval "$(anyenv init -)"
 eval "$(direnv hook zsh)"
-
-# random cowsay
-# cowsay -f $(ls /usr/local/Cellar/cowsay/3.04/share/cows | grep .cow | gshuf -n 1) $(fortune)
-
-# history
-HISTSIZE=50000
-HISTTIMEFORMAT='%Y/%m/%d %H:%M:%S '
-
-# the f*ck
+eval "$(starship init zsh)"
 eval "$(thefuck --alias)"
 
-# alias
+# aliases
 alias ll='ls -laF'
 alias suizokukan='asciiquarium'
 
@@ -45,6 +37,3 @@ alias suizokukan='asciiquarium'
 function calc() {
   awk "BEGIN {print $*}"
 }
-
-# starship
-eval "$(starship init zsh)"
