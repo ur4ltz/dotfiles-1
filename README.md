@@ -1,6 +1,5 @@
 # dotfiles
 
-- ディレクトリ構成考えたい
-- シンボリックリンク設置自動化したい
-  - `ln -sf $HOME/.dotfiles/dot.vimrc $HOME/.vimrc`的な
-
+## 参考
+- [bto/dotfiles](github.com/bto/dotfiles)
+- [takeokunn/dotfiles](github.com/takeokunn/dotfiles)
