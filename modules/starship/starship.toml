@@ -30,3 +30,8 @@ prompt_order = [
   "time",
   "character",
 ]
+
+[directory]
+truncation_length	= 3
+truncate_to_repo = false
+use_logical_path = true
