@@ -48,6 +48,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('digitaltoad/vim-pug')
   call dein#add('wavded/vim-stylus' )
   call dein#add('Yggdroot/indentLine')
+  call dein#add('derekwyatt/vim-scala')
 
   call dein#end()
   call dein#save_state()
