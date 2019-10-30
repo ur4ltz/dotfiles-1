@@ -102,6 +102,8 @@ let g:netrw_alto=1
 nmap / /\v
 nmap <Leader><Leader> V
 nnoremap <silent><C-y> :NERDTreeToggle<CR>
+nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
+nnoremap <C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
