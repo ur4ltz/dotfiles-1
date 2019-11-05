@@ -44,7 +44,8 @@ if dein#load_state('~/.cache/dein')
   call dein#add('tpope/vim-rails')
   call dein#add('jwalton512/vim-blade')
   call dein#add('othree/javascript-libraries-syntax.vim')
-  call dein#add('stephpy/vim-yaml')
+  "call dein#add('stephpy/vim-yaml')
+  call dein#add('chase/vim-ansible-yaml')
   call dein#add('digitaltoad/vim-pug')
   call dein#add('wavded/vim-stylus' )
   call dein#add('Yggdroot/indentLine')
@@ -85,6 +86,8 @@ set splitright
 set incsearch
 set ignorecase
 set smartcase
+set list
+set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 
 let mapleader="\<Space>"
 let NERDTreeShowHidden=1
