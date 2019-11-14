@@ -50,6 +50,8 @@ if dein#load_state('~/.cache/dein')
   call dein#add('derekwyatt/vim-scala')
   call dein#add('prabirshrestha/async.vim')
   call dein#add('prabirshrestha/vim-lsp')
+  call dein#add('prabirshrestha/asyncomplete.vim')
+  call dein#add('prabirshrestha/asyncomplete-lsp.vim')
 
   call dein#end()
   call dein#save_state()
@@ -60,6 +62,31 @@ syntax enable
 
 if dein#check_install()
   call dein#install()
+endif
+
+if executable('solargraph')
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'solargraph',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
+        \ 'initialization_options': {"diagnostics": "true"},
+        \ 'whitelist': ['ruby'],
+        \ })
+endif
+
+if executable('pyls')
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
+endif
+
+if executable('pyls')
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
 endif
 
 set encoding=utf-8
@@ -101,6 +128,9 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:netrw_liststyle=3
 let g:netrw_altv=1
 let g:netrw_alto=1
+let g:lsp_diagnostics_enabled=1
+let g:lsp_log_file=expand('~/vim-lsp.log')
+let g:asyncomplete_log_file=expand('~/asyncomplete.log')
 
 nmap / /\v
 nmap <Leader><Leader> V
