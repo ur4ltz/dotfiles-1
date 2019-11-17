@@ -125,8 +125,8 @@ let g:lsp_log_file=expand('~/vim-lsp.log')
 let g:asyncomplete_log_file=expand('~/asyncomplete.log')
 
 nmap / /\v
-nmap <Leader><Leader> V
-nnoremap <silent><C-y> :NERDTreeToggle<CR>
+nnoremap <Leader><Leader> V
+nnoremap <silent> <C-y> :NERDTreeToggle<CR>
 nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 nnoremap <C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 
