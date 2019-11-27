@@ -31,6 +31,7 @@ eval "$(thefuck --alias)"
 
 # aliases
 alias ll='ls -laF'
+alias lg='lazygit'
 alias suizokukan='asciiquarium'
 
 # functinos
