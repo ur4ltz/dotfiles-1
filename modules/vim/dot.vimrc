@@ -110,8 +110,9 @@ set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 
 let mapleader="\<Space>"
 let NERDTreeShowHidden=1
-"let NERDTreeShowLineNumbers=1
-"let g:NERDTreeWinPos = "left"
+let NERDTreeShowLineNumbers=0
+let g:NERDTreeWinPos="left"
+let g:terraform_align=1
 let g:terraform_fmt_on_save = 1
 let g:indent_guides_auto_colors = 0
 let g:airline#extensions#tabline#enabled = 1
