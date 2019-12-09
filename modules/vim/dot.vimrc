@@ -99,6 +99,7 @@ set cursorline
 set cursorcolumn
 set nofoldenable
 set noswapfile
+set nobackup
 set expandtab
 set splitbelow
 set splitright
