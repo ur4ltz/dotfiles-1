@@ -46,11 +46,12 @@ if dein#load_state('~/.cache/dein')
   call dein#add('digitaltoad/vim-pug')
   call dein#add('wavded/vim-stylus' )
   call dein#add('Yggdroot/indentLine')
-  call dein#add('derekwyatt/vim-scala')
   call dein#add('prabirshrestha/async.vim')
   call dein#add('prabirshrestha/vim-lsp')
   call dein#add('prabirshrestha/asyncomplete.vim')
   call dein#add('prabirshrestha/asyncomplete-lsp.vim')
+  call dein#add('ryanolsonx/vim-lsp-typescript')
+  call dein#add('derekwyatt/vim-scala')
 
   call dein#end()
   call dein#save_state()
@@ -78,6 +79,24 @@ if executable('pyls')
         \ 'cmd': {server_info->['pyls']},
         \ 'whitelist': ['python'],
         \ })
+endif
+
+if executable('typescript-language-server')
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'typescript-language-server',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
+        \ 'whitelist': ['typescript', 'typescript.tsx'],
+        \ })
+endif
+
+if executable('metals-vim')
+   au User lsp_setup call lsp#register_server({
+      \ 'name': 'metals',
+      \ 'cmd': {server_info->['metals-vim']},
+      \ 'initialization_options': { 'rootPatterns': 'build.sbt' },
+      \ 'whitelist': [ 'scala', 'sbt' ],
+      \ })
 endif
 
 set encoding=utf-8
@@ -121,6 +140,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:netrw_liststyle=3
 let g:netrw_altv=1
 let g:netrw_alto=1
+let g:lsp_async_completion=1
 let g:lsp_diagnostics_enabled=1
 let g:lsp_log_file=expand('~/vim-lsp.log')
 let g:asyncomplete_log_file=expand('~/asyncomplete.log')
@@ -134,5 +154,8 @@ nnoremap <C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
-autocmd FileType vue syntax sync fromstart
-autocmd BufNewFile,BufRead *.vue setfiletype vue
+autocmd BufNewFile,BufRead *.sbt,*.scala set filetype=scala
+autocmd BufNewFile,BufRead *.vue set filetype=vue
+autocmd BufNewFile,BufRead *.js set filetype=javascript
+autocmd BufNewFile,BufRead *.ts set filetype=typescript
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx

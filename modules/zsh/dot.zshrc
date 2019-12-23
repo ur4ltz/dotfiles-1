@@ -12,6 +12,9 @@ fi
 
 # Customize to your needs...
 
+export GOPATH="$HOME/go"
+
+export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
