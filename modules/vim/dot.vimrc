@@ -52,6 +52,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('prabirshrestha/asyncomplete-lsp.vim')
   call dein#add('ryanolsonx/vim-lsp-typescript')
   call dein#add('derekwyatt/vim-scala')
+  call dein#add('mattn/vim-lsp-settings')
 
   call dein#end()
   call dein#save_state()
