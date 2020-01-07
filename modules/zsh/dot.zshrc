@@ -39,13 +39,13 @@ alias suizokukan='asciiquarium'
 
 # ghq peco search
 peco-src () {
-    local repo=$(ghq list | peco --query “$LBUFFER”)
+    local repo=$(ghq list | peco --query "$LBUFFER")
     if [ -n “$repo” ]; then
         repo=$(ghq list --full-path --exact $repo)
-        BUFFER=“cd ${repo}”
+        BUFFER="cd ${repo}"
         zle accept-line
     fi
     zle clear-screen
 }
 zle -N peco-src
-bindkey ‘^]’ peco-src
+bindkey '^]' peco-src
