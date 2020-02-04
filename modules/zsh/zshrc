@@ -33,13 +33,26 @@ eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
 eval "$(thefuck --alias)"
 
-# aliases
 alias ll='ls -laF'
 alias lg='lazygit'
 alias suizokukan='asciiquarium'
+alias cdd='cd ~/Downloads/'
 
-# ghq peco search
-peco-src () {
+HISTFILE=~/.zsh_history
+HISTSIZE=1000000
+SAVEHIST=1000000
+setopt extended_history
+setopt share_history
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt hist_verify
+setopt hist_reduce_blanks
+setopt hist_save_no_dups
+setopt hist_expire_dups_first
+setopt hist_expand
+setopt inc_append_history
+
+function peco-src () {
     local repo=$(ghq list | peco --query "$LBUFFER")
     if [ -n “$repo” ]; then
         repo=$(ghq list --full-path --exact $repo)
@@ -50,3 +63,11 @@ peco-src () {
 }
 zle -N peco-src
 bindkey '^]' peco-src
+
+function peco-select-history {
+    BUFFER=`history -n -r 1 | peco --query "$LBUFFER"`
+    CURSOR=$#BUFFER
+    zle reset-prompt
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history

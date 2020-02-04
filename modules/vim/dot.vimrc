@@ -53,6 +53,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('ryanolsonx/vim-lsp-typescript')
   call dein#add('derekwyatt/vim-scala')
   call dein#add('mattn/vim-lsp-settings')
+  call dein#add('gre/play2vim')
 
   call dein#end()
   call dein#save_state()
