@@ -33,7 +33,7 @@ eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
 eval "$(thefuck --alias)"
 
-alias ll='ls -laF'
+alias ll='exa -ahl --git'
 alias lg='lazygit'
 alias suizokukan='asciiquarium'
 alias cdd='cd ~/Downloads/'

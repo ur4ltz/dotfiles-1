@@ -1,0 +1,3 @@
+set main-view = id date author:email-user commit-title:graph=yes,refs=yes
+
+bind generic P      ?git push %(remote) %(repo:head)
