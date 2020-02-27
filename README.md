@@ -1,5 +1,5 @@
 # dotfiles
 
 ## 参考
-- [bto/dotfiles](github.com/bto/dotfiles)
-- [takeokunn/dotfiles](github.com/takeokunn/dotfiles)
+- [bto/dotfiles](https://github.com/bto/dotfiles)
+- [takeokunn/dotfiles](https://github.com/takeokunn/dotfiles)
